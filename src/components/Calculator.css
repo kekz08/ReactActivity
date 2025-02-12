@@ -1,0 +1,85 @@
+.calculator-container {
+    width: 350px;
+    padding: 20px;
+    background-color: #f4f4f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 50px auto;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+  }
+  
+  
+  .calculator-container::before {
+    content: "My own version calculator!";
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  
+  input[type="text"], input[type="number"], select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff;
+    box-sizing: border-box;
+  }
+  
+  
+  input[type="text"] {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    text-align: right;
+  }
+  
+  
+  select {
+    font-size: 16px;
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  
+  button {
+    padding: 10px 20px;
+    margin: 10px 5px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  
+  button:last-of-type {
+    background-color: #dc3545;
+  }
+  
+  
+  button:last-of-type:hover {
+    background-color: #c82333;
+  }
+  
+  
+  @media screen and (max-width: 400px) {
+    .calculator-container {
+        width: 90%;
+    }
+    button {
+        width: 100%;
+        margin: 10px 0;
+    }
+  }

@@ -1,10 +1,15 @@
 import { useState } from "react";
+import './Calculator.css';
 
 function BasicCalculator() {
     const [num1, setNum1] = useState("");
     const [num2, setNum2] = useState("");
     const [operator, setOperator] = useState("+");
     const [result, setResult] = useState(0);
+
+    const resResult = () => {
+        setResult(0);
+    }
 
     const calculate = () => {
         const n1 = parseFloat(num1);
@@ -23,15 +28,17 @@ function BasicCalculator() {
             }
             setResult(res);
         }
-
-        // // Reset input fields to blank
-        // setNum1("");
-        // setNum2("");
+        setNum1("");
+        setNum2("");
     };
 
     return (
-        <>
-            <h1 style={{ color: 'red' }}>Result: {result}</h1>
+        <div className="calculator-container">
+            <input 
+                type="text" 
+                value={result} 
+                readOnly
+            /><br />
             <input 
                 type="number" 
                 value={num1} 
@@ -48,8 +55,8 @@ function BasicCalculator() {
                 <option value="*">Multiplication</option>
                 <option value="/">Division</option>
             </select><br />
-            <button onClick={calculate}>Calculate</button>
-        </>
+            <button onClick={calculate}>Calculate</button><button onClick={resResult}>C</button>
+        </div>
     );
 }
 
