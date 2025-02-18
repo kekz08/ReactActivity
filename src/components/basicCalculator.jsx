@@ -7,9 +7,11 @@ function BasicCalculator() {
     const [operator, setOperator] = useState("+");
     const [result, setResult] = useState(0);
 
+    const MAX_RESULT = 999999999;
+
     const resResult = () => {
         setResult(0);
-    }
+    };
 
     const calculate = () => {
         const n1 = parseFloat(num1);
@@ -20,14 +22,35 @@ function BasicCalculator() {
         } else {
             let res = 0;
             switch (operator) {
-                case "+": res = n1 + n2; break;
-                case "-": res = n1 - n2; break;
-                case "*": res = n1 * n2; break;
-                case "/": res = n2 !== 0 ? n1 / n2 : "Error"; break;
-                default: res = 0;
+                case "+":
+                    res = n1 + n2;
+                    break;
+                case "-":
+                    res = n1 - n2;
+                    break;
+                case "*":
+                    res = n1 * n2;
+                    break;
+                case "/":
+                    res = n2 !== 0 ? n1 / n2 : "Error";
+                    break;
+                default:
+                    res = 0;
             }
-            setResult(res);
+
+            if (typeof res === "number") {
+                if (res > MAX_RESULT) {
+                    setResult(MAX_RESULT);
+                } else if (res < -MAX_RESULT) {
+                    setResult(-MAX_RESULT);
+                } else {
+                    setResult(res);
+                }
+            } else {
+                setResult(res);
+            }
         }
+
         setNum1("");
         setNum2("");
     };
